@@ -1,0 +1,193 @@
+# clitooltester inputs.
+---
+set:
+  name: mke2fs-1.45.5
+  description: ext file system set
+  base_path: test_data
+  elements:
+    - name: ext2_blockdev
+      description: block device in an ext2 file system with inode size 128
+      path: mke2fs-1.45.5/ext2.raw
+      parameters:
+        inode_number: 27
+        start_sector: 0
+    - name: ext2_chardev
+      description: character device in an ext2 file system with inode size 128
+      path: mke2fs-1.45.5/ext2.raw
+      parameters:
+        inode_number: 28
+        start_sector: 0
+    - name: ext2_directory_with_xattr
+      description: directory with extended attribute in an ext2 file system with inode size 128
+      path: mke2fs-1.45.5/ext2.raw
+      parameters:
+        inode_number: 23
+        start_sector: 0
+    - name: ext2_file_with_xattr
+      description: regular file with extended attribute in an ext2 file system with inode size 128
+      path: mke2fs-1.45.5/ext2.raw
+      parameters:
+        inode_number: 22
+        start_sector: 0
+    - name: ext2_pipe
+      description: pipe in an ext2 file system with inode size 128
+      path: mke2fs-1.45.5/ext2.raw
+      parameters:
+        inode_number: 29
+        start_sector: 0
+    - name: ext3_blockdev
+      description: block device in an ext3 file system with inode size 128
+      path: mke2fs-1.45.5/ext3.raw
+      parameters:
+        inode_number: 27
+        start_sector: 0
+    - name: ext3_chardev
+      description: character device in an ext3 file system with inode size 128
+      path: mke2fs-1.45.5/ext3.raw
+      parameters:
+        inode_number: 28
+        start_sector: 0
+    - name: ext3_directory_with_xattr
+      description: directory with extended attribute in an ext3 file system with inode size 128
+      path: mke2fs-1.45.5/ext3.raw
+      parameters:
+        inode_number: 23
+        start_sector: 0
+    - name: ext3_file_with_xattr
+      description: regular file with extended attribute in an ext3 file system with inode size 128
+      path: mke2fs-1.45.5/ext3.raw
+      parameters:
+        inode_number: 22
+        start_sector: 0
+    - name: ext3_pipe
+      description: pipe in an ext3 file system with inode size 128
+      path: mke2fs-1.45.5/ext3.raw
+      parameters:
+        inode_number: 29
+        start_sector: 0
+    - name: ext4_blockdev
+      description: block device in an ext4 file system with inode size 128
+      path: mke2fs-1.45.5/ext4.raw
+      parameters:
+        inode_number: 27
+        start_sector: 0
+    - name: ext4_chardev
+      description: character device in an ext4 file system with inode size 128
+      path: mke2fs-1.45.5/ext4.raw
+      parameters:
+        inode_number: 28
+        start_sector: 0
+    - name: ext4_directory_with_xattr
+      description: directory with extended attribute in an ext4 file system with inode size 128
+      path: mke2fs-1.45.5/ext4.raw
+      parameters:
+        inode_number: 23
+        start_sector: 0
+    - name: ext4_file_with_xattr
+      description: regular file with extended attribute in an ext4 file system with inode size 128
+      path: mke2fs-1.45.5/ext4.raw
+      parameters:
+        inode_number: 22
+        start_sector: 0
+    - name: ext4_pipe
+      description: pipe in an ext4 file system with inode size 128
+      path: mke2fs-1.45.5/ext4.raw
+      parameters:
+        inode_number: 29
+        start_sector: 0
+---
+set:
+  name: mke2fs-1.47.0
+  description: ext file system set
+  base_path: test_data
+  elements:
+    - name: ext2_blockdev
+      description: block device in an ext2 file system with inode size 256
+      path: mke2fs-1.47.0/ext2.raw
+      parameters:
+        inode_number: 27
+        start_sector: 0
+    - name: ext2_chardev
+      description: character device in an ext2 file system with inode size 256
+      path: mke2fs-1.47.0/ext2.raw
+      parameters:
+        inode_number: 28
+        start_sector: 0
+    - name: ext2_directory_with_xattr
+      description: directory with extended attribute in an ext2 file system with inode size 256
+      path: mke2fs-1.47.0/ext2.raw
+      parameters:
+        inode_number: 23
+        start_sector: 0
+    - name: ext2_file_with_xattr
+      description: regular file with extended attribute in an ext2 file system with inode size 256
+      path: mke2fs-1.47.0/ext2.raw
+      parameters:
+        inode_number: 22
+        start_sector: 0
+    - name: ext2_pipe
+      description: pipe in an ext2 file system with inode size 256
+      path: mke2fs-1.47.0/ext2.raw
+      parameters:
+        inode_number: 29
+        start_sector: 0
+    - name: ext3_blockdev
+      description: block device in an ext3 file system with inode size 256
+      path: mke2fs-1.47.0/ext3.raw
+      parameters:
+        inode_number: 27
+        start_sector: 0
+    - name: ext3_chardev
+      description: character device in an ext3 file system with inode size 256
+      path: mke2fs-1.47.0/ext3.raw
+      parameters:
+        inode_number: 28
+        start_sector: 0
+    - name: ext3_directory_with_xattr
+      description: directory with extended attribute in an ext3 file system with inode size 256
+      path: mke2fs-1.47.0/ext3.raw
+      parameters:
+        inode_number: 23
+        start_sector: 0
+    - name: ext3_file_with_xattr
+      description: regular file with extended attribute in an ext3 file system with inode size 256
+      path: mke2fs-1.47.0/ext3.raw
+      parameters:
+        inode_number: 22
+        start_sector: 0
+    - name: ext3_pipe
+      description: pipe in an ext3 file system with inode size 256
+      path: mke2fs-1.47.0/ext3.raw
+      parameters:
+        inode_number: 29
+        start_sector: 0
+    - name: ext4_blockdev
+      description: block device in an ext4 file system with inode size 256
+      path: mke2fs-1.47.0/ext4.raw
+      parameters:
+        inode_number: 27
+        start_sector: 0
+    - name: ext4_chardev
+      description: character device in an ext4 file system with inode size 256
+      path: mke2fs-1.47.0/ext4.raw
+      parameters:
+        inode_number: 28
+        start_sector: 0
+    - name: ext4_directory_with_xattr
+      description: directory with extended attribute in an ext4 file system with inode size 256
+      path: mke2fs-1.47.0/ext4.raw
+      parameters:
+        inode_number: 23
+        start_sector: 0
+    - name: ext4_file_with_xattr
+      description: regular file with extended attribute in an ext4 file system with inode size 256
+      path: mke2fs-1.47.0/ext4.raw
+      parameters:
+        inode_number: 22
+        start_sector: 0
+    - name: ext4_pipe
+      description: pipe in an ext4 file system with inode size 256
+      path: mke2fs-1.47.0/ext4.raw
+      parameters:
+        inode_number: 29
+        start_sector: 0

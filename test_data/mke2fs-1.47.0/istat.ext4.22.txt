@@ -1,0 +1,17 @@
+inode: 22
+Allocated
+Group: 0
+Generation Id: 612045194
+uid / gid: 0 / 0
+mode: rrw-r--r--
+Flags: Extents, 
+size: 0
+num of links: 1
+
+Inode Times:
+Accessed:	2026-05-20 17:44:31.251573649 (UTC)
+File Modified:	2026-05-20 17:44:31.251573649 (UTC)
+Inode Modified:	2026-05-20 17:44:31.252573640 (UTC)
+File Created:	2026-05-20 17:44:31.251573649 (UTC)
+
+Direct Blocks:

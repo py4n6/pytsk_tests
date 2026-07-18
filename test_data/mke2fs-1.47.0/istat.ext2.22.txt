@@ -1,0 +1,15 @@
+inode: 22
+Allocated
+Group: 0
+Generation Id: 1803167177
+uid / gid: 0 / 0
+mode: rrw-r--r--
+size: 0
+num of links: 1
+
+Inode Times:
+Accessed:	2026-05-20 17:44:28 (UTC)
+File Modified:	2026-05-20 17:44:28 (UTC)
+Inode Modified:	2026-05-20 17:44:28 (UTC)
+
+Direct Blocks:

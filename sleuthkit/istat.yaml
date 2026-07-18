@@ -1,0 +1,12 @@
+# clitooltester test.
+---
+name: istat
+description: Runs istat on an input file
+docker:
+  dockerfile: sleuthkit/Dockerfile
+  tag: pytsk_tests/sleuthkit
+command: sleuthkit/tools/fstools/istat -o %start_sector% %input% %inode_number%
+stdout:
+  normalizer: sleuthkit/istat.py
+  reference_file: data/%input%.json
+  validator: scripts/json_validator.py

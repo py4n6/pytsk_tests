@@ -1,0 +1,12 @@
+Acknowledgements: pytsk_tests
+
+Copyright (c) 2026, Joachim Metz <joachim.metz@gmail.com>
+
+Generated with the help of the [ext-specimens project](https://github.com/dfirlabs/ext-specimens):
+
+* test_data/mke2fs-1.45.5/ext2.raw
+* test_data/mke2fs-1.45.5/ext3.raw
+* test_data/mke2fs-1.45.5/ext4.raw
+* test_data/mke2fs-1.47.0/ext2.raw
+* test_data/mke2fs-1.47.0/ext3.raw
+* test_data/mke2fs-1.47.0/ext4.raw
