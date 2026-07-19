@@ -1,0 +1,13 @@
+Directory Entry: 582
+Allocated
+File Attributes: File, Archive
+Size: 8
+Name: TESTFI~1
+
+Directory Entry Times:
+Written:	2026-07-19 04:49:36 (CEST)
+Accessed:	2026-07-19 00:00:00 (CEST)
+Created:	2026-07-19 04:49:36 (CEST)
+
+Sectors:
+53 0 0 0

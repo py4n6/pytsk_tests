@@ -1,0 +1,13 @@
+Directory Entry: 7
+Allocated
+File Attributes: Directory
+Size: 2048
+Name: TESTDIR1
+
+Directory Entry Times:
+Written:	2026-07-19 04:49:36 (CEST)
+Accessed:	2026-07-19 00:00:00 (CEST)
+Created:	2026-07-19 04:49:36 (CEST)
+
+Sectors:
+49 50 51 52 

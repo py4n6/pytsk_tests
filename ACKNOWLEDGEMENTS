@@ -10,3 +10,9 @@ Generated with the help of the [ext-specimens project](https://github.com/dfirla
 * test_data/mke2fs-1.47.0/ext2.raw
 * test_data/mke2fs-1.47.0/ext3.raw
 * test_data/mke2fs-1.47.0/ext4.raw
+
+Generated with the help of the [fat-specimens project](https://github.com/dfirlabs/fat-specimens):
+
+* test_data/mkfs.fat-4.2/fat12.raw
+* test_data/mkfs.fat-4.2/fat16.raw
+* test_data/mkfs.fat-4.2/fat32.raw
