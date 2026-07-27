@@ -16,30 +16,55 @@ class IstatOutputParser:
     """Parses Sleuthkit istat output."""
 
     SECTION_HEADERS = {
+        "Attributes:": "attributes",
+        "Data Fork Blocks:": "data_fork_blocks",
         "Direct Blocks:": "direct_blocks",
         "Indirect Blocks:": "indirect_blocks",
-        "Inode Times:": "inode_times",
+        "Directory Entry Times:": "time_values",  # Used for FAT-12/FAT-16/FAT-32
+        "Inode Times:": "time_values",  # Used for ext2/ext3/ext4
+        "Sectors:": "sectors",
+        "Times:": "time_values",  # Used for HFS+/HFSX
     }
 
     DEFAULT_ATTRIBUTE_NAMES = {
+        "admin flags": "admin_flags",
+        "catalog record": "inode_number",  # Used for HFS+/HFSX
+        "device id": "device_identifier",
+        "directory entry": "inode_number",  # Used for FAT-12/FAT-16/FAT-32
+        "file attributes": "file_attributes",
+        "file creator": "creator",
+        "file name": "name",
+        "file path": "path",
+        "file type": "file_type",
         "flags": "flags",
         "generation id": "nfs_generation_number",
         "group": "group",
-        "inode": "inode_number",
+        "inode": "inode_number",  # Used for ext2/ext3/ext4
         "mode": "file_mode",
+        "name": "name",
+        "link count": "number_of_links",
         "num of links": "number_of_links",
+        "owner flags": "owner_flags",
+        "resource fork size": "resource_fork_size",
         "size": "size",
         "symbolic link to": "link_target",
+        "text encoding": "text_encoding",
+        "type": "record_type",
     }
 
-    INODE_TIMES_ATTRIBUTE_NAMES = {
+    TIME_VALUE_ATTRIBUTE_NAMES = {
+        "attributes modified": "change_time",
         "accessed": "access_time",
+        "backed up": "backup_time",
+        "content modified": "modification_time",
+        "created": "creation_time",
         "file created": "creation_time",
         "file modified": "modification_time",
         "inode modified": "change_time",
+        "written": "modification_time",
     }
 
-    DATE_TIME_ATTRIBUTES = frozenset(INODE_TIMES_ATTRIBUTE_NAMES.values())
+    DATE_TIME_ATTRIBUTES = frozenset(TIME_VALUE_ATTRIBUTE_NAMES.values())
 
     DECIMAL_ATTRIBUTES = frozenset(
         [
@@ -49,6 +74,7 @@ class IstatOutputParser:
             "nfs_generation_number",
             "number_of_links",
             "project_identifier",
+            "resource_fork_size",
             "size",
             "user_identifier",
         ]
@@ -146,6 +172,10 @@ class IstatOutputParser:
         if line == "Allocated":
             result["allocated"] = True
 
+        # Seen in HFS+ output
+        elif line == "Has extended attributes":
+            pass
+
         elif line == "Not Allocated":
             result["allocated"] = False
 
@@ -172,8 +202,8 @@ class IstatOutputParser:
         else:
             raise RuntimeError(f"Unsupported line: {line:s}")
 
-    def _parse_section_inode_times(self, line: str, result: Dict[str, str]):
-        """Parses a line of the inode times section.
+    def _parse_section_time_values(self, line: str, result: Dict[str, str]):
+        """Parses a line of a time values section.
 
         Args:
           line (str): line in the section.
@@ -186,7 +216,7 @@ class IstatOutputParser:
             key, _, value = line.partition(":")
             key = key.lower()
 
-            attribute_name = self.INODE_TIMES_ATTRIBUTE_NAMES.get(key)
+            attribute_name = self.TIME_VALUE_ATTRIBUTE_NAMES.get(key)
             attribute_value = value.strip()
 
             if attribute_name in self.DATE_TIME_ATTRIBUTES:
@@ -244,8 +274,8 @@ class IstatOutputParser:
                 # TODO: convert indirect block numbers into ranges
                 pass
 
-            elif section == "inode_times":
-                self._parse_section_inode_times(line, result)
+            elif section == "time_values":
+                self._parse_section_time_values(line, result)
 
         return result
 

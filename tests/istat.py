@@ -66,31 +66,31 @@ class IstatOutputParserTest(test_lib.BaseTestCase):
             result = {}
             parser._parse_section_default("Bogus", result)
 
-    def test_parse_section_inode_times(self):
+    def test_parse_section_time_values(self):
         """Tests the _parse_section_default function."""
         parser = istat.IstatOutputParser()
 
         result = {}
-        parser._parse_section_inode_times("Accessed: 2020-08-19 18:48:16 (UTC)", result)
+        parser._parse_section_time_values("Accessed: 2020-08-19 18:48:16 (UTC)", result)
         expected_result = {"access_time": "2020-08-19T18:48:16Z"}
         self.assertEqual(result, expected_result)
 
         result = {}
-        parser._parse_section_inode_times(
+        parser._parse_section_time_values(
             "File Modified: 2020-08-19 18:48:16 (UTC)", result
         )
         expected_result = {"modification_time": "2020-08-19T18:48:16Z"}
         self.assertEqual(result, expected_result)
 
         result = {}
-        parser._parse_section_inode_times(
+        parser._parse_section_time_values(
             "Inode Modified: 2020-08-19 18:48:16 (UTC)", result
         )
         expected_result = {"change_time": "2020-08-19T18:48:16Z"}
         self.assertEqual(result, expected_result)
 
         result = {}
-        parser._parse_section_inode_times(
+        parser._parse_section_time_values(
             "File Created: 2020-08-19 18:48:16.123456789 (UTC)", result
         )
         expected_result = {"creation_time": "2020-08-19T18:48:16.123456789Z"}
@@ -98,13 +98,13 @@ class IstatOutputParserTest(test_lib.BaseTestCase):
 
         with self.assertRaises(RuntimeError):
             result = {}
-            parser._parse_section_inode_times(
+            parser._parse_section_time_values(
                 "Accessed: 2020-08-19 18:48:16 PST", result
             )
 
         with self.assertRaises(RuntimeError):
             result = {}
-            parser._parse_section_inode_times("Bogus", result)
+            parser._parse_section_time_values("Bogus", result)
 
     def test_parse_with_ext2(self):
         """Tests the parse function with ext2 istat output."""
@@ -153,6 +153,59 @@ class IstatOutputParserTest(test_lib.BaseTestCase):
             "number_of_links": 1,
             "size": 0,
             "user_identifier": 0,
+        }
+        self.assertEqual(result, expected_result)
+
+    def test_parse_with_fat12(self):
+        """Tests the parse function with FAT-12 istat output."""
+        test_file = self._get_test_file_path(["mkfs.fat-4.2", "istat.fat12.582.txt"])
+        self._skip_if_path_not_exists(test_file)
+
+        with open(test_file, encoding="utf-8") as file_object:
+            result = istat.IstatOutputParser().parse(file_object)
+
+        expected_result = {
+            "access_time": "2026-07-19T00:00:00Z",
+            "allocated": True,
+            "creation_time": "2026-07-19T04:49:36Z",
+            'file_attributes': 'File, Archive',
+            "inode_number": 582,
+            "modification_time": "2026-07-19T04:49:36Z",
+            "name": "TESTFI~1",
+            "size": 8,
+        }
+        self.assertEqual(result, expected_result)
+
+    def test_parse_with_hfsplus(self):
+        """Tests the parse function with HFS+ istat output."""
+        test_file = self._get_test_file_path(["macos-15.7.4", "istat.hfsplus.35.txt"])
+        self._skip_if_path_not_exists(test_file)
+
+        with open(test_file, encoding="utf-8") as file_object:
+            result = istat.IstatOutputParser().parse(file_object)
+
+        expected_result = {
+            "access_time": "2026-05-21T01:51:16Z",
+            "admin_flags": "0",
+            "allocated": True,
+            "backup_time": "0000-00-00T00:00:00Z",
+            "change_time": "2026-05-21T01:51:16Z",
+            "creation_time": "2026-05-21T01:51:16Z",
+            "creator": "0000",
+            "file_mode": 0o100644,
+            "file_type": "0000",
+            "group_identifier": 20,
+            "inode_number": 35,
+            "modification_time": "2026-05-21T01:51:16Z",
+            "name": "xattr1",
+            "number_of_links": 1,
+            "owner_flags": "0",
+            "path": "/testdir1/xattr1",
+            "record_type": "File",
+            "resource_fork_size": 0,
+            "size": 0,
+            "text_encoding": "0 = MacRoman",
+            "user_identifier": 501,
         }
         self.assertEqual(result, expected_result)
 

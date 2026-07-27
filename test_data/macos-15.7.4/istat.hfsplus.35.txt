@@ -1,0 +1,31 @@
+File Path: /testdir1/xattr1
+Catalog Record: 35
+Allocated
+Type:	File
+Mode:	rrw-r--r--
+Size:	0
+uid / gid: 501 / 20
+Link count:	1
+
+File Name: xattr1
+Admin flags: 0
+Owner flags: 0
+Has extended attributes
+File type:	0000      
+File creator:	0000      
+Text encoding:	0 = MacRoman
+Resource fork size:	0
+
+Times:
+Created:	2026-05-21 01:51:16 (UTC)
+Content Modified:	2026-05-21 01:51:16 (UTC)
+Attributes Modified:	2026-05-21 01:51:16 (UTC)
+Accessed:	2026-05-21 01:51:16 (UTC)
+Backed Up:	0000-00-00 00:00:00 (UTC)
+
+Data Fork Blocks:
+
+Attributes: 
+Type: ExATTR (4354-2)   Name: myxattr1   Resident   size: 25
+Type: DATA (4352-0)   Name: N/A   Non-Resident   size: 0  init_size: 0
+

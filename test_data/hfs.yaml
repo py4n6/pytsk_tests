@@ -1,0 +1,37 @@
+# clitooltester inputs.
+---
+set:
+  name: macos-15.7.4
+  description: HFS+/HFSX file system set
+  base_path: test_data
+  elements:
+    - name: hfsplus_blockdev
+      description: block device in a HFS+ file system
+      path: macos-15.7.4/hfsplus.dmg
+      parameters:
+        inode_number: 38
+        start_sector: 40
+    - name: hfsplus_chardev
+      description: character device in a HFS+ file system
+      path: macos-15.7.4/hfsplus.dmg
+      parameters:
+        inode_number: 39
+        start_sector: 40
+    - name: hfsplus_directory_with_xattr
+      description: directory with extended attribute in a HFS+ file system
+      path: macos-15.7.4/hfsplus.dmg
+      parameters:
+        inode_number: 36
+        start_sector: 40
+    - name: hfsplus_file_with_xattr
+      description: regular file with extended attribute in a HFS+ file system
+      path: macos-15.7.4/hfsplus.dmg
+      parameters:
+        inode_number: 35
+        start_sector: 40
+    - name: hfsplus_pipe
+      description: pipe in a HFS+ file system
+      path: macos-15.7.4/hfsplus.dmg
+      parameters:
+        inode_number: 56
+        start_sector: 40

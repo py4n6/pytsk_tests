@@ -16,3 +16,7 @@ Generated with the help of the [fat-specimens project](https://github.com/dfirla
 * test_data/mkfs.fat-4.2/fat12.raw
 * test_data/mkfs.fat-4.2/fat16.raw
 * test_data/mkfs.fat-4.2/fat32.raw
+
+Generated with the help of the [hfs-specimens project](https://github.com/dfirlabs/hfs-specimens):
+
+* test_data/macos-15.7.4/hfsplus.dmg
